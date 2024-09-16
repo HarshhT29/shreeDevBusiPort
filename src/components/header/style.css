@@ -3,13 +3,13 @@
 } */
 
 .top {
-    background: #00000040;
+    background: #5b3e30;
     backdrop-filter: blur(3.5px);
     -webkit-backdrop-filter: blur(3.5px);
     @apply translate-y-0
 }
 .show {
-    background-color: rgba(255, 24, 24, 0.943);
+    background: #603e2d;
 }
 .hide {
     transform: translateY(-60px);

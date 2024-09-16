@@ -31,7 +31,7 @@ const Navbar = () => {
     
 
     return (
-        <header className={`header fixed text-white w-full h-16 z-10 flex items-center transition-all duration-300 ease-out ${nav} `}>
+        <header className={`header fixed text-[color:#fdeed1] w-full h-16 z-10 flex items-center transition-all duration-300 ease-out ${nav} `}>
             <ContentWrapper className="flex items-center justify-between">
                 <ul className={`nav-list md:flex items-center gap-14 list-none `}>
                     <li className='nav-list-ele'><a href="#">Home</a></li>
