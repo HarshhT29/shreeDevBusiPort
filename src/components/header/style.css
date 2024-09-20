@@ -1,6 +1,14 @@
-/* .header .nav-list .nav-list-ele {
-    @apply flex h-[60px] items-center text-white font-medium relative cursor-pointer mx-[15px] my-0;
-} */
+.header .nav-list .nav-list-ele {
+    @apply text-[color:#fdeed1] font-light cursor-pointer mx-[15px] my-0;
+}
+
+.mbView {
+    @apply flex flex-col absolute top-[60px] left-0 bg-[#5b3e30] w-full px-0 py-5 border-t border-white border-opacity-10 animate-[mobileMenuView] duration-300 ease-out;
+}
+.mbView-Ele {
+    @apply text-xl w-full h-auto px-5 py-4 m-0 bg-[#5b3e30] flex flex-col items-start animate-[mobileMenuView] duration-300 ease-out;
+}
+
 
 .top {
     background: #5b3e30;
