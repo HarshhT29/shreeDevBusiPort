@@ -3,13 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
+body {
     margin: 0;
-    padding: 0;;
+    padding: 0;
     text-decoration: none;
 }
 
-.landingHeader{
+.landingHeader {
     font-family: "Inter", sans-serif;
+}
+
+.landing-anim {
+    background-image: url('/img/Landing/landing1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: landing-background 90s linear infinite;
+}
+
+@keyframes landing-background {
+    0% {
+        background-position:left;
+    }
+    50% {
+        background-position: right;
+    }
+    100%{
+        background-position: left;
+    }
 }

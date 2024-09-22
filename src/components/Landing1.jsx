@@ -1,12 +1,16 @@
 const Landing1 = () => {
   return (
-    <div className="flex relative">
-        <div className="w-3/5  bg-[#fdeed1] h-screen">
-        <span className="absolute text-[#5b3e30] font-light text-[130px] top-1/4 text-center w-full landingHeader flex justify-center gap-4 items-center"><p className="">Shree</p>
-        <p className="landingHeader">De<span className="font-normal">vansh</span></p></span>
-        </div>
-        <div className="w-1/2 bg-[url(/img/Landing/img1.jpg)]  bg-contain">  
-        </div>
+    <div className = "relative min-h-[160vh] landing-anim bg-cover overflow-x-hidden">
+      <div className = "absolute bottom-20 w-screen flex justify-center rounded-md">
+          <div className="backdrop-blur-md flex gap-7 items-center bg-[#f4f0ea]/75 w-fit p-10 rounded-md">
+              <div>
+                <img src="/img/Landing/img1.jpg" className="w-40 h-40 rounded-sm" alt="" />
+              </div>
+              <div>
+              <p className="max-w-sm text-lg text-semibold font-semibold landingHeader">Crafting excellence in copper for over 40 years with a diverse range of top-quality products designed to meet global standards at affordable prices.</p>
+              </div>
+          </div>
+      </div>
     </div>
   )
 }

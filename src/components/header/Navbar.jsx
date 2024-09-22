@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
