@@ -32,13 +32,13 @@ const Navbar = () => {
 
     return (
         <header className={`header fixed  w-full h-16 z-10 flex items-center transition-all duration-300 ease-out ${nav} `}>
-            <ContentWrapper className="flex items-center justify-between">
+            <ContentWrapper className="flex items-center justify-between px-10">
                 <ul className={`nav-list md:flex items-center gap-14 list-none ${menu ? 'md:hidden mbView' : 'hidden'} `}>
                     <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a href="#">Home</a></li>
                     <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a href="#">About</a></li>
                 </ul>
-                <div className="logo">
-                    LOGO
+                <div className="logo w-32 mb-3 h-auto">
+                    <img src='/img/logos/logo3.png' />
                 </div>
                 <ul className={`nav-list md:flex items-center gap-14 list-none ${menu ? 'md:hidden mbView left-28' : 'hidden'} `}>
                     <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a href='#'>Contact Us</a></li>
