@@ -63,6 +63,12 @@ body {
     animation: landing-background 90s linear infinite;
 }
 
+@media screen and (width < 800px) {
+    .landing-anim{
+        animation-duration: 60s;
+    }
+}
+
 @keyframes landing-background {
     0% {
         background-position: left;

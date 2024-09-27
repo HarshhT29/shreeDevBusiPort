@@ -48,9 +48,9 @@ const Landing1 = () => {
   }, []);
 
   return (
-    <div className="relative min-h-[160vh] landing-anim bg-cover overflow-x-hidden">
+    <div className="relative min-h-[200vh] md:min-h-[160vh] landing-anim bg-cover overflow-x-hidden">
       <div className="absolute backdrop-blur-sm bottom-0 w-screen flex justify-center bg-[#f4f0ea]/75">
-        <div className=" text-[#fdeed1] sourceSans rounded-md flex gap-16 p-10 text-center items-center w-fit landingHeader">
+        <div className=" text-[#fdeed1] sourceSans rounded-md flex flex-col md:flex-row md:gap-16 p-10 text-center items-center w-fit landingHeader">
           <div className="p-10">
             <p className="text-5xl flex flex-col text-[#080404]">
               {/* Animated Number for "40" */}
