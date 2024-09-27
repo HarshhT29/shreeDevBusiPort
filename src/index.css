@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -32,12 +33,25 @@ body {
     text-decoration: none;
 }
 
+.sourceSans{
+    font-family: "Source Sans 3", sans-serif;
+
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
 
 .landingHeader {
     font-family: "Inter", sans-serif;
+}
+
+.spaceMono{
+    font-family: "Space Mono", monospace;
+}
+
+.montserrat{
+    font-family: "Montserrat", sans-serif;
 }
 
 .landing-anim {

@@ -1,5 +1,5 @@
 import Navbar from './components/header/Navbar'
-import Landing1 from './components/Landing1'
+import Landing1 from './components/Landing/Landing1'
 
 const App = () => {
   return (
