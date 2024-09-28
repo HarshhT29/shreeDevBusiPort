@@ -32,13 +32,13 @@
 }
 
 .products {
-  animation: slideCircular 20s linear infinite;
+  animation: slideCircular 25s linear infinite alternate;
   /* animation-play-state: running; */
 }
-.products-wrapper {
+.products {
   animation-play-state: running;
 }
-.products-wrapper:hover {
+.products:hover {
   animation-play-state: paused;
 }
 

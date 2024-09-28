@@ -48,13 +48,6 @@ body {
     font-family: "Inter", sans-serif;
 }
 
-.spaceMono{
-    font-family: "Space Mono", monospace;
-}
-
-.montserrat{
-    font-family: "Montserrat", sans-serif;
-}
 
 .landing-anim {
     background-image: url('/img/Landing/landing1.png');
@@ -82,3 +75,5 @@ body {
         background-position: left;
     }
 }
+
+
