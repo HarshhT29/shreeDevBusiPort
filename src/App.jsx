@@ -1,5 +1,6 @@
 import About from './components/About/About'
 import Category from './components/category/Category'
+import Footer from './components/Footer/Footer'
 import Navbar from './components/header/Navbar'
 import RotatingText from './components/InfiCarousal/InfiniteMarquee'
 import Landing1 from './components/Landing/Landing1'
@@ -15,6 +16,7 @@ const App = () => {
       <Category />
       <RotatingText />
       <Idea />
+      <Footer />
     </>
   )
 }
