@@ -1,9 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Product from './Product';
 
 const Category = () => {
-
-    const productRef = useRef(null);
 
     const productData = [
         {
@@ -36,48 +34,7 @@ const Category = () => {
             description: "Eco-friendly bamboo fruit basket to store and present fruits in a sustainable way.",
             img: "pot2.jpg",
         },
-        // line
-        {
-            id: 1,
-            title: "Makta with Tap",
-            description: "A beautifully crafted clay matka pot with a tap, perfect for sustainable and healthy water storage.",
-            img: "bottle1.jpg",
-        },
-        {
-            id: 2,
-            title: "Ceramic Flower Vase",
-            description: "Hand-painted ceramic vase, ideal for home décor and perfect for holding fresh flowers.",
-            img: "bottle2.jpg",
-        },
-        {
-            id: 3,
-            title: "Wooden Spice Box",
-            description: "A multi-compartment wooden spice box that brings a rustic charm to your kitchen organization.",
-            img: "matka_tap.jpg",
-        },
-        {
-            id: 4,
-            title: "Bamboo Fruit Basket",
-            description: "Eco-friendly bamboo fruit basket to store and present fruits in a sustainable way.",
-            img: "pot1.jpg",
-        },
-        {
-            id: 5,
-            title: "Pot",
-            description: "Eco-friendly bamboo fruit basket to store and present fruits in a sustainable way.",
-            img: "pot2.jpg",
-        },
     ];
-
-    // useEffect(() => {
-    //     const productContainer = productRef.current;
-    //     const products = [...productContainer.children];
-
-    //     products.forEach(product => {
-    //         const clone = product.cloneNode(true);
-    //         productContainer.appendChild(clone);
-    //     });
-    // }, []);
 
     return (
         <div className="m-10">
@@ -85,7 +42,7 @@ const Category = () => {
                 Our Products
             </h1>
             <div className="products-wrapper overflow-hidden whitespace-nowrap py-6">
-                <div className="products flex mx-2 space-x-24" ref={productRef}>
+                <div className="products flex mx-2 space-x-24">
                     {productData.map(product => (
                         <Product 
                             key={product.id} 

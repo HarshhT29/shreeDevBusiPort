@@ -22,17 +22,17 @@
 }
 
 
-@keyframes slideCircular {
+@keyframes slide {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-75%);
   }
 }
 
 .products {
-  animation: slideCircular 25s linear infinite alternate;
+  animation: slide 22s linear infinite alternate;
   /* animation-play-state: running; */
 }
 .products {
@@ -46,4 +46,12 @@
   .products {
     animation: none;
   }
+}
+
+
+.card-bg-anim {
+  /* background-image: url('/img/Landing/landing1.png');
+  background-size: cover;
+  background-repeat: no-repeat; */
+  animation: landing-background 44s linear infinite;
 }

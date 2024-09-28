@@ -17,22 +17,30 @@ const Product = ({ ...props }) => {
               />
               <h3 className='text-3xl landingHeader font-semibold text-gray-700 mt-4'>
                 {props.title}
-                {props.id}
               </h3>
             </div>
 
             {/* Back Side */}
-            <div className="flip-card-back flex flex-col justify-center items-center bg-[#2b6cb0] text-white">
-              <h3 className='text-2xl landingHeader font-semibold text-white mb-4'>
-                {props.title}
-              </h3>
-              <p className='text-lg p-8 text-wrap landingHeader text-white text-center'>
-                {props.description}
-              </p>
+            <div className="flip-card-back bg-cover bg-no-repeat card-bg-anim flex flex-col justify-center items-center  text-white"
+              style={{
+                backgroundImage: `url(src/assets/products/${props.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }} >
 
-              <button className='mt-4 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200'>
-                GET
-              </button>
+              <div className="cardBack rounded-2xl bg-[#f4f0ea]/50 backdrop-blur-sm h-full">
+                <h3 className='text-2xl my-16 landingHeader font-semibold text-white mb-4'>
+                  {props.title}
+                </h3>
+                <p className='text-lg p-8 text-wrap landingHeader text-[#271212] text-center'>
+                  {props.description}
+                </p>
+
+                <span className='underline text-xl'>
+                  <a>View All</a>
+                </span>
+                
+              </div>
             </div>
           </div>
         </div>
