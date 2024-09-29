@@ -55,3 +55,13 @@
   background-repeat: no-repeat; */
   animation: landing-background 44s linear infinite;
 }
+
+.products-wrapper {
+  overflow-x: auto;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.products-wrapper:active {
+  cursor: grabbing;
+}

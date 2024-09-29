@@ -37,13 +37,13 @@ const Category = () => {
     ];
 
     return (
-        <div className="m-10">
-            <h1 className='mb-6 landingHeader text-5xl font-bold text-gray-800'>
-                Our Products
+        <div className="bg-[#f4f0ea] py-10">
+            <h1 className='mb-4 mx-6 landingHeader text-5xl font-bold text-gray-800'>
+                Our Categories
             </h1>
             <div className="products-wrapper overflow-hidden whitespace-nowrap py-6">
                 <div className="products flex mx-2 space-x-24">
-                    {productData.map(product => (
+                    {productData?.map(product => (
                         <Product 
                             key={product.id} 
                             id = {product.id}
