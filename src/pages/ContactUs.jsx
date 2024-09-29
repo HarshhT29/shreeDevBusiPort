@@ -1,11 +1,89 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import { toast, ToastContainer } from 'react-toastify'
 import ContentWrapper from '../components/contentWrapper/ContentWrapper';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNo: '',
+    message: '',
+  });
+
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+
+    if (name === 'phoneNo' && value.length > 10) {
+      return;
+    }
+
+    setFormData((prevData)=>({...prevData, [name]:value}));
+  }, []);
+
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  const validateForm = () => {
+    const { firstName, lastName, email, phoneNo, message } = formData;
+    if (!firstName) {
+      toast.error('First Name is required');
+      return false;
+    }
+    if (firstName.length > 15 || lastName.length > 15) {
+      toast.error(`${firstName.length > 15 ? 'First' : 'Last'} Name should not exceed 15 characters.`);
+      return false;
+    }
+
+    if (!email) {
+      toast.error('email is required');
+      return false;
+    }
+    if (!isValidEmail(email)) {
+      toast.error('Please enter a valid email address.');
+      return false;
+    }
+    if (!phoneNo) {
+      toast.error('Phone Number is required');
+      return false;
+    }
+    if (phoneNo.length !== 10) {
+      toast.error('Phone number must be exactly 10 digits.');
+      return false;
+    }
+    if (!/^\d+$/.test(phoneNo)) {
+      toast.error('Phone number should contain only digits.');
+      return false;
+    }
+    if (!message) {
+      toast.error('Message is required');
+      return false;
+    }
+    return true;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      toast.success('Form submitted successfully!!!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNo: '',
+        message: '',
+      });
+    }
+  }
+
   return (
     <div className="main-container pt-24 mb-20">
       <ContentWrapper>
-
+        <ToastContainer limit={5} />
         <div className='text-center mb-10'>
           <h1 className='text-4xl font-bold text-gray-800 '>Contact Us</h1>
           <p className='mt-4 text-lg text-gray-600'>We'd love to hear from you. Get in touch with us!</p>
@@ -36,29 +114,34 @@ const ContactUs = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <form className="border border-gray-600 shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white">
+          <form className="border border-gray-600 shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white"
+            onSubmit={handleSubmit}>
             <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Send us a Message</h2>
 
             <div className="mb-6 flex gap-4">
               <div className="w-1/2">
-                <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
                   First Name<span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  name="first-name"
+                  name="firstName"
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform"
                   placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="w-1/2">
-                <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
                 <input
                   type="text"
-                  name="last-name"
+                  name="lastName"
                   className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform"
                   placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -72,6 +155,8 @@ const ContactUs = () => {
                 name="email"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
                 placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
 
@@ -81,9 +166,11 @@ const ContactUs = () => {
               </label>
               <input
                 type="tel"
-                name="phone-no"
+                name="phoneNo"
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
                 placeholder="Enter your phone number"
+                value={formData.phoneNo}
+                onChange={handleChange}
               />
             </div>
 
@@ -96,13 +183,15 @@ const ContactUs = () => {
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
                 rows="4"
                 placeholder="Write your message"
+                value={formData.message}
+                onChange={handleChange}
               ></textarea>
             </div>
 
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-[#f4f0ea] dark:text-[#271212] text-white px-6 py-2 rounded-md transition-all duration-200 ease-in-out transform hover:scale-110"
+                className="bg-[#f4f0ea] text-[#271212]  px-6 py-2 rounded-md transition-all duration-200 ease-in-out transform hover:scale-110"
               >
                 Send Message
               </button>
