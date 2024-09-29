@@ -18,7 +18,7 @@ const Product = ({ ...props }) => {
               <img
                 src={`src/assets/products/${props.img}`}
                 alt="Matka Pot with Tap"
-                className='w-full max-h-80 rounded-lg shadow-md'
+                className='w-full aspect-square rounded-lg shadow-md'
               />
               <h3 className='text-xl landingHeader font-semibold text-gray-700 mt-4'>
                 {props.title}

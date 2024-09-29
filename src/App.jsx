@@ -1,22 +1,22 @@
-import About from './components/About/About'
-import Category from './components/category/Category'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/header/Navbar'
-import RotatingText from './components/InfiCarousal/InfiniteMarquee'
-import Landing1 from './components/Landing/Landing1'
-import Idea from './components/Newsletter/Newsletter'
-
+import Home from './pages/Home';
+import ContactUs from './pages/ContactUs';
+import PageNotFound from './pages/PageNotFound';
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Landing1 />
-      <About />
-      <Category />
-      <RotatingText />
-      <Idea />
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+          <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/contact-us' element={<ContactUs />} />
+              <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }

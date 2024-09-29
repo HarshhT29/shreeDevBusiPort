@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import ContentWrapper from '../contentWrapper/ContentWrapper'
@@ -8,9 +9,15 @@ const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [nav, setNav] = useState('top');
     const [scroll, setScroll] = useState(0);
+    const navigate = useNavigate();
+
+    const navigationHandler = (url) => {
+        navigate(url)
+        setMenu(false);
+    }
 
     const scrollHandler = () => {
-        if(menu) {
+        if (menu) {
             setMenu(false);
         }
         const currScroll = window.scrollY;
@@ -34,15 +41,17 @@ const Navbar = () => {
         <header className={`header fixed  w-full h-16 z-10 flex items-center transition-all duration-300 ease-out ${nav} `}>
             <ContentWrapper className="flex items-center justify-between px-10">
                 <ul className={`nav-list md:flex items-center gap-14 list-none ${menu ? 'md:hidden mbView' : 'hidden'} `}>
-                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a href="#" className='hover:text-white transition-all duration-500'>Home</a></li>
-                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a href="#" className='hover:text-white transition-all duration-500'>About</a></li>
+                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''} hover:text-white transition-all duration-500`}
+                        onClick={() => navigationHandler('/')}>Home</li>
+                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''} hover:text-white transition-all duration-500`}>About</li>
                 </ul>
-                <div className="logo w-32 mb-3 h-auto">
+                <div className="logo w-32 mb-3 h-auto cursor-pointer" onClick={() => navigationHandler('/')}>
                     <img src='/img/logos/logo3.png' />
                 </div>
                 <ul className={`nav-list md:flex items-center gap-14 list-none ${menu ? 'md:hidden mbView left-28' : 'hidden'} `}>
-                    <li className={`nav-list-ele  ${menu ? 'mbView-Ele' : ''}`}><a href='#' className='hover:text-white transition-all duration-500'>Contact Us</a></li>
-                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}`}><a className='hover:text-white transition-all duration-500' href='#'>Product</a></li>
+                    <li className={`nav-list-ele  ${menu ? 'mbView-Ele' : ''} hover:text-white transition-all duration-500`}
+                        onClick={() => navigationHandler('/contact-us')}>Contact Us</li>
+                    <li className={`nav-list-ele ${menu ? 'mbView-Ele' : ''}hover:text-white transition-all duration-500`}>Product</li>
                 </ul>
 
                 <div className="mobileView align-middle md:hidden">
