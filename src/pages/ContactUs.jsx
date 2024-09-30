@@ -81,7 +81,7 @@ const ContactUs = () => {
   }
 
   return (
-    <div className="main-container pt-24 mb-20">
+    <div className="main-container py-24 bg-[#f4f0ea]">
       <ContentWrapper>
         <ToastContainer limit={5} />
         <div className='text-center mb-10'>
@@ -114,7 +114,7 @@ const ContactUs = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <form className="border border-gray-600 shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white"
+          <form className="shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white"
             onSubmit={handleSubmit}>
             <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Send us a Message</h2>
 
