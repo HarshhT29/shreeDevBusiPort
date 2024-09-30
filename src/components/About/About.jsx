@@ -1,4 +1,5 @@
 import { useScroll, useTransform, motion } from "framer-motion";
+import { Element } from "react-scroll";
 
 const About = () => {
   const { scrollYProgress } = useScroll(); // Track scroll progress
@@ -7,6 +8,7 @@ const About = () => {
   const topPosition = useTransform(scrollYProgress, [0, 1], ["85%", "-10%"]);
 
   return (
+    <Element name = "about">
     <div className="min-h-screen bg-[#f4f0ea] lg:px-40 px-10 py-16 flex lg:flex-row flex-col gap-20 text-[#271212] items-center lg:justify-between justify-center text-center lg:text-left">
       <div className="relative">
         {/* Static image */}
@@ -29,6 +31,7 @@ const About = () => {
         </p>
       </div>
     </div>
+    </Element>
   );
 };
 
