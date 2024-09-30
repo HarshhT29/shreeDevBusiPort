@@ -26,17 +26,20 @@ async function scrapeWebsite(url) {
     $('.a-link-normal._offer-faceout-carousel-card_style_productTitle__2OT1H').each((i, elem) => {
         const title = $(elem).text().trim(); // First attribute: product title
 
-        const priceElem = $(elem).closest('.s-main-slot').find('.a-price-whole'); // Second attribute: product price
+        const priceElem = $(elem).closest('.s-main-slot').find('.a-price-whole');
         const price = priceElem.text().trim();
 
-        const ratingElem = $(elem).closest('.s-main-slot').find('.a-icon-alt'); // Third attribute: product rating
+        const ratingElem = $(elem).closest('.s-main-slot').find('.a-icon-alt');
         const rating = ratingElem.text().trim();
 
-        // Create an object with the extracted data
+        // Extract the image URL from the image tag
+        const imageElem = $(elem).closest('.s-main-slot').find('img'); 
+        const imageUrl = imageElem.attr('src')
         const product = {
             title,
             price,
-            rating
+            rating,
+            imageUrl: imageUrl || 'Image not available' // Add the image URL or a fallback message
         };
 
         // Push the object to the scrapedData array

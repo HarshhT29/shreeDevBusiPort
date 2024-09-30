@@ -1,9 +1,8 @@
-import React from 'react'
 import About from '../components/About/About'
 import Category from '../components/category/Category'
-import RotatingText from '../components/InfiCarousal/InfiniteMarquee'
 import Landing1 from '../components/Landing/Landing1'
 import Idea from '../components/Newsletter/Newsletter'
+import Marquee from '../components/InfiCarousal/InfiniteMarquee'
 
 const Home = () => {
   return (
@@ -11,7 +10,7 @@ const Home = () => {
       <Landing1 />
       <About />
       <Category />
-      <RotatingText />
+      <Marquee />
       <Idea />
     </div>
   )
