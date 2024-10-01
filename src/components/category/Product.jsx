@@ -16,7 +16,7 @@ const Product = ({ ...props }) => {
             {/* Front Side */}
             <div className="flip-card-front bg-[#ebe2d6b6] text-black">
               <img
-                src={`/img/products/${props.img}`}
+                src={props.image}
                 alt="Matka Pot with Tap"
                 className='w-full aspect-square rounded-lg shadow-md'
               />
@@ -33,7 +33,7 @@ const Product = ({ ...props }) => {
             {/* Back Side */}
             <div className="flip-card-back bg-cover bg-no-repeat card-bg-anim flex flex-col justify-center items-center  text-[#271212] "
               style={{
-                backgroundImage: `url(/img/products/${props.img})`,
+                backgroundImage: `url(${props.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }} >
