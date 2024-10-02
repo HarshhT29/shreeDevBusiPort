@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
@@ -11,11 +11,16 @@ const Navbar = () => {
   const [nav, setNav] = useState("top");
   const [scroll, setScroll] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navigationHandler = (url) => {
     navigate(url);
     setMenu(false);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0); //naye page pe jaane ke baad scroll upar se hi chalu hona chahiye
+  }, [location]);
 
   const scrollHandler = () => {
     const currScroll = window.scrollY;
@@ -34,6 +39,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, [scroll]);
+
 
   return (
     <header
