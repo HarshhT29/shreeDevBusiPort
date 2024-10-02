@@ -2,7 +2,7 @@ import React from 'react';
 
 const CategoryItem = ({ title, description, image }) => {
     return (
-        <div className="w-[80vw] sm:w-[50vw] h-[69vh] flex-shrink-0 flex flex-col sm:flex-row bg-blend-normal rounded-lg">
+        <div className="w-[80vw] sm:w-[50vw] h-[60vh] flex-shrink-0 flex flex-col sm:flex-row bg-blend-normal rounded-lg">
             <img 
                 src={image} 
                 alt={title} 
