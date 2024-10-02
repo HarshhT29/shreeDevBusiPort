@@ -1,30 +1,22 @@
 import React from 'react';
-import ContentWrapper from '../contentWrapper/ContentWrapper';
-import { motion, useTransform } from 'framer-motion';
 
-const CategoryItem = ({ ...props }) => {
-
-    const translateY = useTransform(props.progress, [0, 1], [0, -50 * (props.index % 2)]);
-
+const CategoryItem = ({ title, description, image }) => {
     return (
-        <section className=''>
-            <ContentWrapper>
-                <motion.div
-                    // style={{ y: translateY }}
-                    className="relative w-96 h-[69vh] flex flex-row overflow-hidden"
-                >
-                    <img 
-                        src={props.image} 
-                        alt={props.title}
-                        className='w-2/3 h-full object-contain' // Ensures image is not distorted
-                    />
-                    <div className="flex flex-col justify-center gap-1 w-1/3 bg-blend-normal">
-                        <h2 className='text-lg font-semibold text-black'>{props.title}</h2>
-                    </div>
-                </motion.div>
-            </ContentWrapper>
-        </section>
+        <div className="w-[80vw] sm:w-[50vw] h-[69vh] flex-shrink-0 flex flex-col sm:flex-row bg-blend-normal rounded-lg">
+            <img 
+                src={image} 
+                alt={title} 
+                className="w-full sm:w-1/2 h-full object-cover"
+            />
+            <div className="flex flex-col justify-center p-6 sm:w-1/2">
+                <h2 className="text-3xl  font-bold text-gray-800">{title}</h2>
+                <p className="mt-4 text-gray-600">{description}</p>
+                <button className="mt-6 py-2 px-4 bg-[#271212] text-white font-semibold rounded hover:bg-[#3e1e1e]">
+                    Get {title}
+                </button>
+            </div>
+        </div>
     );
-}
+};
 
 export default CategoryItem;
