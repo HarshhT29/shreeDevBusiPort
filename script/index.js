@@ -32,17 +32,16 @@ async function scrapeWebsite(url) {
         const ratingElem = $(elem).closest('.s-main-slot').find('.a-icon-alt');
         const rating = ratingElem.text().trim();
 
-        // Extract the image URL from the image tag
-        const imageElem = $(elem).closest('.s-main-slot').find('img'); 
-        const imageUrl = imageElem.attr('src')
+        // Fix the image element extraction
+        const imageElem = $(elem).find('img'); 
+        const imageUrl = imageElem.attr('src'); // Get the image URL
+        
         const product = {
             title,
             price,
             rating,
-            imageUrl: imageUrl || 'Image not available' // Add the image URL or a fallback message
+            imageUrl 
         };
-
-        // Push the object to the scrapedData array
         scrapedData.push(product);
     });
 
@@ -53,7 +52,7 @@ async function scrapeWebsite(url) {
 }
 
 // Use the scraper
-const url = 'https://www.amazon.in/l/27943762031?me=A1K6XQ7KUWCZYH&ref_=ssf_share';
+const url = 'https://www.amazon.in/l/27943762031?ie=UTF8&marketplaceID=A21TJRUUN4KGV&me=A2GP2T5FXD1LNX';
 scrapeWebsite(url)
     .then(() => console.log('Scraping completed'))
     .catch(err => console.error('Error:', err));

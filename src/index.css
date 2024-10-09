@@ -56,9 +56,11 @@ body {
     animation: landing-background 90s linear infinite;
 }
 
-@media screen and (width < 800px) {
+
+@media screen and (max-width: 768px) {
     .landing-anim{
-        animation-duration: 60s;
+        background-image: url('/img/Landing/landing_small.png');
+        background-size: cover;
     }
 }
 
