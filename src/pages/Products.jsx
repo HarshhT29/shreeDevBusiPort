@@ -17,10 +17,10 @@ const Products = () => {
             <h2 className="text-xl font-semibold mt-2 max-w-xs mx-auto">
               {elem.title}
             </h2>
-            <p className="text-lg font-bold text-[#f4f0ea] py-2 rounded-sm max-w-xs mx-auto bg-[#272727]">
+            <p className="text-lg font-medium text-[#f4f0ea] py-2 rounded-sm max-w-xs mx-auto bg-[#272727]">
               ₹{elem.price}00
             </p>
-            <a href={elem.link} className="font-semibold hover:scale-105 duration-700 max-w-xs mx-auto bg-[#ff9900] flex justify-center items-center gap-3 py-1 rounded-sm">
+            <a href={elem.link} className="font-medium hover:scale-105 duration-700 max-w-xs mx-auto bg-[#ff9900] flex justify-center items-center gap-1 py-1 rounded-sm">
               <span>Shop On </span>
               <img src="/product/amazon.svg" alt="" className="h-10" />{" "}
             </a>
