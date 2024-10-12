@@ -1,10 +1,9 @@
-import React, { useCallback, useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import React, { useCallback, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import ContentWrapper from '../components/contentWrapper/ContentWrapper';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ContactUs = () => {
-
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,13 +19,13 @@ const ContactUs = () => {
       return;
     }
 
-    setFormData((prevData)=>({...prevData, [name]:value}));
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   }, []);
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-  }
+  };
 
   const validateForm = () => {
     const { firstName, lastName, email, phoneNo, message } = formData;
@@ -40,7 +39,7 @@ const ContactUs = () => {
     }
 
     if (!email) {
-      toast.error('email is required');
+      toast.error('Email is required');
       return false;
     }
     if (!isValidEmail(email)) {
@@ -64,35 +63,52 @@ const ContactUs = () => {
       return false;
     }
     return true;
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (validateForm()) {
-      toast.success('Form submitted successfully!!!');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNo: '',
-        message: '',
-      });
+      try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          toast.success('Form submitted successfully!!!');
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phoneNo: '',
+            message: '',
+          });
+        } else {
+          const errorData = await response.json();
+          toast.error(errorData.msg || 'An error occurred. Please try again.');
+        }
+      } catch (error) {
+        toast.error('Server Error. Please try again later.');
+      }
     }
-  }
+  };
 
   return (
     <div className="main-container py-24 bg-[#f4f0ea]">
       <ContentWrapper>
         <ToastContainer limit={5} />
-        <div className='text-center mb-10'>
-          <h1 className='text-4xl font-bold text-gray-800 '>Contact Us</h1>
-          <p className='mt-4 text-lg text-gray-600'>We'd love to hear from you. Get in touch with us!</p>
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-800">Contact Us</h1>
+          <p className="mt-4 text-lg text-gray-600">We&apos;d love to hear from you. Get in touch with us!</p>
         </div>
 
         <div className="details mt-10 flex flex-col md:flex-row justify-between items-start gap-10">
-
           {/* Left Side - Location/Details */}
-          <div className="location-info text-gray-600 text-base leading-relaxed md:w-1/2 ">
+          <div className="location-info text-gray-600 text-base leading-relaxed md:w-1/2">
             <h2 className="text-2xl font-semibold text-gray-700 mb-4">Our Office</h2>
             <p>1234 Business Avenue, Suite 100</p>
             <p>New York, NY 10001</p>
@@ -114,8 +130,7 @@ const ContactUs = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <form className="shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white"
-            onSubmit={handleSubmit}>
+          <form className="shadow-lg rounded-lg p-8 w-full md:w-1/2 bg-white" onSubmit={handleSubmit}>
             <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Send us a Message</h2>
 
             <div className="mb-6 flex gap-4">
@@ -134,7 +149,9 @@ const ContactUs = () => {
               </div>
 
               <div className="w-1/2">
-                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                  Last Name
+                </label>
                 <input
                   type="text"
                   name="lastName"
@@ -153,7 +170,7 @@ const ContactUs = () => {
               <input
                 type="email"
                 name="email"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
@@ -167,7 +184,7 @@ const ContactUs = () => {
               <input
                 type="tel"
                 name="phoneNo"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform"
                 placeholder="Enter your phone number"
                 value={formData.phoneNo}
                 onChange={handleChange}
@@ -180,7 +197,7 @@ const ContactUs = () => {
               </label>
               <textarea
                 name="message"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform "
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 ease-in-out transform"
                 rows="4"
                 placeholder="Write your message"
                 value={formData.message}
@@ -191,18 +208,16 @@ const ContactUs = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="bg-[#f4f0ea] text-[#271212]  px-6 py-2 rounded-md transition-all duration-200 ease-in-out transform hover:scale-110"
+                className="bg-[#f4f0ea] text-gray-800 font-semibold rounded-md py-2 px-4 shadow-md hover:bg-gray-800 hover:text-white transition duration-200 ease-in-out transform"
               >
                 Send Message
               </button>
             </div>
           </form>
-
         </div>
-
       </ContentWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default ContactUs
+export default ContactUs;
