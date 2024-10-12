@@ -2,7 +2,8 @@ import array from "../../data.json";
 
 const Products = () => {
   return (
-    <div className="min-h-screen bg-[#f4f0ea] text-[#271212] py-24 px-20">
+    <div className="min-h-screen space-y-5 bg-[#f4f0ea] text-[#271212] py-24 px-20">
+      <h1 className="text-left text-5xl font-medium">Our Products</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {array.map((elem, index) => (
           <a href={elem.link}
