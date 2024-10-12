@@ -5,32 +5,32 @@ const Footer = () => {
     <div className="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <nav className="flex flex-wrap justify-center -mx-5 -my-2">
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     About
                 </a>
             </div>
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     Blog
                 </a>
             </div>
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     Team
                 </a>
             </div>
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     Pricing
                 </a>
             </div>
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     Contact
                 </a>
             </div>
             <div className="px-5 py-2">
-                <a href="#" className="text-base leading-6 text-[#f4f0ea] hover:text-white">
+                <a href="#" className="text-base hover:scale-105 duration-700 leading-6 text-[#f4f0ea] hover:text-white">
                     Terms
                 </a>
             </div>
