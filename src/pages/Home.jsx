@@ -7,7 +7,6 @@
   const Home = () => {
     return (
       <div>
-
         <Landing_small/>
         <Landing1 />
         <About />

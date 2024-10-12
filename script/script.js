@@ -3,7 +3,6 @@ import {load} from 'cheerio';
 import { writeFileSync } from 'fs';
 
 (async () => {
-    // URL of the webpage to scrape
     const url = 'https://example.com';
 
     // Launch Puppeteer and open a new browser page
@@ -29,7 +28,7 @@ import { writeFileSync } from 'fs';
     // List to store image URLs
     const imageUrls = [];
 
-    // Loop through the class names to find image tags
+    //  tagssclasLoop through the  names to find image
     classNames.forEach(className => {
         $(`.${className} img`).each((i, img) => {
             const imageUrl = $(img).attr('src');
